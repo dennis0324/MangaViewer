@@ -76,10 +76,9 @@ Hitomi.prototype.getDataIndex = async function(url){
 
 Hitomi.prototype.getRequest = async function(url){
         this.requestData.url = url
-        axios.request(this.requestData)
-        .then(e => {
-                console.log(e)
-        })
+        const data = await axios.request(this.requestData)
+
+        return data
         // console.log(JSON.parse(response.data.toString()));
 }
 
