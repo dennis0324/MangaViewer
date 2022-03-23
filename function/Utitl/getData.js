@@ -14,7 +14,9 @@ function Hitomi (path,extension) {
         this.headers = { //basic header for request
                 "User-Agent": ua,
                 'Referer': 'https://hitomi.la/',
-                'Content-Type': 'text/plain; charset=ISO-8859-15'
+                // 'Content-Type': 'text/plain; charset=ISO-8859-15'
+                'Content-Type': 'application/json;charset=UTF-8',
+                'accept-lnguage': 'ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7',
         }
 
         this.Extension = { //storing data of extension
@@ -31,13 +33,18 @@ function Hitomi (path,extension) {
 
         this.requestData = {
                 method: 'GET',
-                responseType: 'arraybuffer',
+                responseEncoding : 'binary',
+                responseType : 'arraybuffer',
                 headers : this.headers
         }
         
         this.makeURL = Hitomi.bind(this.data);
         return `${this.protocal}//${this.url}/${path}${extension}`
 };
+
+Hitomi.prototype.toArrayBuffer = function(buffer) {
+        return buffer.buffer.slice(buffer.byteOffset, buffer.byteOffset + buffer.byteLength);
+}
 
 Hitomi.prototype.bind = function(data){
         const self = this.bind
@@ -53,13 +60,10 @@ Hitomi.prototype.bind = function(data){
 Hitomi.prototype.getDataIndex = async function(url){
         
         var nozomi = []
-        function toArrayBuffer(buffer) {
-                return buffer.buffer.slice(buffer.byteOffset, buffer.byteOffset + buffer.byteLength);
-        }
         this.requestData.url = url
         let response =  await axios.request(this.requestData)
         
-        var arrayBuffer = toArrayBuffer(response.data); // Note: not oReq.responseText
+        var arrayBuffer = this.toArrayBuffer(response.data); // Note: not oReq.responseText
         if (arrayBuffer) {
                 var view = new DataView(arrayBuffer);
                 
@@ -79,7 +83,7 @@ Hitomi.prototype.getRequest = async function(url){
         const data = await axios.request(this.requestData)
 
         return data
-        // console.log(JSON.parse(response.data.toString()));
+        console.log(JSON.parse(data.toString()));
 }
 
 
@@ -89,6 +93,7 @@ Hitomi.prototype.getIndex =async function(first = 1, second = 25){
 
         this.headers.Range = `bytes=${byteFirst}-${byteSecond}`
         this.requestData.responseEncoding = 'binary'
+        this.requestData.responseType = 'arraybuffer'
 
         let url = this.makeURL("index-all",this.Extension.INDEX)
         let index = await this.getDataIndex(url)
@@ -96,9 +101,17 @@ Hitomi.prototype.getIndex =async function(first = 1, second = 25){
 }
 
 Hitomi.prototype.getGalleryInfo = async function(galleryNum){
-        this.requestData.responseEncoding = ''
+        console.log(JSON.stringify(this.requestData));
+        // this.requestData.responseEncoding = ''
         let url = this.makeURL(`galleries/${galleryNum}`,this.Extension.JAVASCRIPT)
         index = await this.getRequest(url)
-        return index
+        return index.data.toString()
+}
+
+Hitomi.prototype.getGalleryBlock = async function(galleryNum){
+
+        let url = this.makeURL(`galleryblock/${galleryNum}`,this.Extension.READER)
+        index = await this.getRequest(url)
+        return index.data.toString()
 }
 exports.Hitomi = Hitomi;
