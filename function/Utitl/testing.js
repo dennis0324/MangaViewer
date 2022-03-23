@@ -28,6 +28,7 @@ async function processArray(array) {
 function real_full_path_from_hash(hash) {
   return hash.replace(/^.*(..)(.)$/, '$2/$1/'+hash);
 }
+//id,title,language,date, type, releated, files, tags
 note = []
 const testing = async () => {
 
@@ -36,22 +37,23 @@ const testing = async () => {
   await Promise.all(index.nozomi.map(async (element) => {
     const response  = await hitomi.getGalleryInfo(element)
     let temp = JSON.parse(response.replace("var galleryinfo = ",""))
+    temp
     note.push(temp)
-    // console.log(temp)
-    // const $ = cheerio.load(response)
-    // $('')
-    // const response = await axios.get('https://www.naver.com/');
-
-
-    // console.log(response)
-    // note.push(response.data)
   }));
-
-  // let testing = await hitomi.getGalleryInfo(2174334)
-  // console.log(testing.data)
-  // let data = await hitomi.getGalleryInfo(2172192)
   note.forEach(element => {
     console.log(element)
+    fileCollection = []
+    element.files.forEach(file => {
+      fileCollection.push({
+
+      })
+    })
+    let dataElement = {
+      id : element.id,
+      title : element.title,
+      language : element.language,
+      date : element.date,
+    }
   });
 
 }
