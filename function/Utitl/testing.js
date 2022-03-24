@@ -37,24 +37,41 @@ const testing = async () => {
   await Promise.all(index.nozomi.map(async (element) => {
     const response  = await hitomi.getGalleryInfo(element)
     let temp = JSON.parse(response.replace("var galleryinfo = ",""))
-    temp
-    note.push(temp)
+    let tags = []
+    
+    console.log(temp.tags)
+    if(temp.tags != null){
+      temp.tags.forEach(tag => {
+        tags.push(tag)
+      })
+    }
+
+    let dataElement = {
+      id : temp.id,
+      title : temp.title,
+      language : temp.language,
+      date : temp.date,
+      tags : tags
+    }
+
+    note.push(dataElement)
+
   }));
   note.forEach(element => {
-    console.log(element)
-    fileCollection = []
-    element.files.forEach(file => {
-      fileCollection.push({
+    console.log(element);
+  })
+  // note.forEach(element => {
+  //   console.log(element)
+  //   fileCollection = []
+  //   element.files.forEach(file => {
+  //     fileCollection.push({
 
-      })
-    })
-    let dataElement = {
-      id : element.id,
-      title : element.title,
-      language : element.language,
-      date : element.date,
-    }
-  });
+  //     })
+  //   })
+
+
+
+  // });
 
 }
 

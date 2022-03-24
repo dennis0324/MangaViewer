@@ -83,7 +83,6 @@ Hitomi.prototype.getRequest = async function(url){
         const data = await axios.request(this.requestData)
 
         return data
-        console.log(JSON.parse(data.toString()));
 }
 
 
@@ -101,8 +100,6 @@ Hitomi.prototype.getIndex =async function(first = 1, second = 25){
 }
 
 Hitomi.prototype.getGalleryInfo = async function(galleryNum){
-        console.log(JSON.stringify(this.requestData));
-        // this.requestData.responseEncoding = ''
         let url = this.makeURL(`galleries/${galleryNum}`,this.Extension.JAVASCRIPT)
         index = await this.getRequest(url)
         return index.data.toString()
