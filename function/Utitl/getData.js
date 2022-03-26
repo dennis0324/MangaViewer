@@ -9,6 +9,7 @@
 const axios = require("axios");
 const randomUseragent = require('random-useragent');
 const ua = randomUseragent.getRandom();
+
 //basic function for prototype
 function Hitomi (path,extension) {
         this.headers = { //basic header for request
@@ -70,12 +71,10 @@ Hitomi.prototype.getDataIndex = async function(url){
                 var total = view.byteLength/4;
                 for (var i = 0; i < total; i++) {
                         nozomi.push(view.getInt32(i*4, false /* big-endian */));
-                }
-
-                total_items = response.headers['content-range'].replace(/^[Bb]ytes \d+-\d+\//, '') / 4
+                } 
         }
 
-        return {nozomi,total_items}
+        return {nozomi,total}
 }
 
 Hitomi.prototype.getRequest = async function(url){
@@ -110,5 +109,20 @@ Hitomi.prototype.getGalleryBlock = async function(galleryNum){
         let url = this.makeURL(`galleryblock/${galleryNum}`,this.Extension.READER)
         index = await this.getRequest(url)
         return index.data.toString()
+}
+
+Hitomi.prototype.getGalleryImg = async function(url) {
+        const ua = randomUseragent.getRandom();
+        const data = await axios.request({
+                url: url,
+                method: 'GET',
+                responseType : 'arraybuffer',
+                responseEncoding : 'binary',
+                headers : { //basic header for request
+                        "User-Agent": ua,
+                        'Referer': 'https://hitomi.la/',
+                }
+        })
+        return data
 }
 exports.Hitomi = Hitomi;

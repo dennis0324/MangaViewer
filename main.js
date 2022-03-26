@@ -3,23 +3,37 @@ const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const request = require("request");
 
-// const {Hitomi} = require('./function/Utitl/getData')
+const test = require("./function/Utitl/getData.js");
+const Hitomi = test.Hitomi
+const hitomi = new Hitomi();
 
+// const {Hitomi} = require('./function/Utitl/getData')
+async function data(mainWindow){
+  
+  var hash =  await hitomi.getGalleryImg('https://aa.hitomi.la/webp/1648220402/2684/7cc580b612295d527d26cc72972b31a3772788428ec518796631f9d81ce1d7ca.webp')
+  console.log(hash);
+  mainWindow.webContents.send('onWebcontentsValue', hash.data.toString('base64'))
+}
 function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      preload: path.join(__dirname, 'preload.js'),
+      nodeIntegration : true,
+      contextIsolation: false,
     }
   })
-  
-  var nozomi = []
 
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
 
+  mainWindow.webContents.on('did-finish-load', (evt) => {
+    console.log("testing");
+    // onWebcontentsValue 이벤트 송신
+    data(mainWindow)
+  })
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 }
