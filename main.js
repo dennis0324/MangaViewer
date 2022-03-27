@@ -4,15 +4,17 @@ const path = require('path')
 const request = require("request");
 
 const test = require("./function/Utitl/getData.js");
+const {hub} = require("./function/Utitl/testing")
 const Hitomi = test.Hitomi
 const hitomi = new Hitomi();
 
 // const {Hitomi} = require('./function/Utitl/getData')
 async function data(mainWindow){
   
-  var hash =  await hitomi.getGalleryImg('https://aa.hitomi.la/webp/1648220402/2684/7cc580b612295d527d26cc72972b31a3772788428ec518796631f9d81ce1d7ca.webp')
-  console.log(hash);
-  mainWindow.webContents.send('onWebcontentsValue', hash.data.toString('base64'))
+  let index = await hub.testing()
+  // var hash =  await hitomi.getGalleryImg('https://aa.hitomi.la/webp/1648386001/2098/0686a453a465a4b71da5aacc531820a04e0c23d20842bab4a51981ac861b0328.webp')
+  // mainWindow.webContents.send('onWebcontentsValue', hash.data.toString('base64'))
+  mainWindow.webContents.send('onIndexGetReady',index)
 }
 function createWindow () {
   // Create the browser window.
