@@ -255,18 +255,23 @@ const getImages = async (listFiles) => {
   ggFunction = data.data.toString().replace("gg","const gg")
   vm.runInThisContext(ggFunction)
 
-  await Promise.all(listFiles.files.map(async (element,index) => {
-    let decodeUrl;
-    if(index > 5) {
-      return;
-    }
-    decodeUrl = common.url_from_url_from_hash(listFiles.id, element, 'webp', undefined, 'a')
-    console.log(decodeUrl)
-    let image = await hitomi.getGalleryImg(decodeUrl)
-    console.log(index);
-    // console.log(image.data) 
-    listImage.push(image.data.toString('base64'));
-  }));
+  // await Promise.all(listFiles.files.map(async (element,index) => {
+  //   let decodeUrl;
+  //   if(index > 5) {
+  //     return;
+  //   }
+  //   decodeUrl = common.url_from_url_from_hash(listFiles.id, element, 'webp', undefined, 'a')
+  //   console.log(decodeUrl)
+  //   let image = await hitomi.getGalleryImg(decodeUrl)
+  //   console.log(index);
+  //   // console.log(image.data) 
+  //   listImage.push(image.data.toString('base64'));
+  // }));
+
+  // getGalleryImgs(listFiles.files)
+
+  getGalleryImgs(testingJson)
+
 }
 
 const testingImage = async (url) =>{
@@ -275,9 +280,21 @@ const testingImage = async (url) =>{
   // listImage.push(image.data.toString('base64'));
   console.log(image.data.toString('base64'));
 }
+
+const getGalleryImgs = async (files) => {
+  // 
+  // for()
+  count = 0
+  for(var file in files){
+    var radomDelay = parseInt(Math.random() * 3 + 1)
+    decodeUrl = common.url_from_url_from_hash(file.id, file, 'webp', undefined, 'a')
+    console.log(decodeUrl)
+    hitomi.getGalleryImg(decodeUrl).then(await wait(3000))
+  }
+}
 //67f366f6a6973c1eb6e3220f232be003e99fc4f5a42693c7635789e3eaa11879
 // testing();
-// getImages(testingJson)
+getImages(testingJson)
 // testingImage();
 
 
