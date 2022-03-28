@@ -301,56 +301,17 @@ const testingJson = {
   type: 'doujinshi'
 }
 
-
-function wait(ms) {
-  return new Promise( (resolve) => {setTimeout(resolve, ms)});
-}
-
-
 const { default: axios } = require("axios");
 const { not } = require("cheerio/lib/api/traversing");
 const test = require("./getData");
-const cheerio = require("cheerio");
 const vm = require('vm');
 const {common} = require('./commonFunction')
 const randomUseragent = require('random-useragent');
-// const { wait } = require("nightmare/lib/actions");
 const ua = randomUseragent.getRandom();
 
 
 var Hitomi = test.Hitomi
-
 let hitomi = new Hitomi();
-// let makeURL = Hitomi.bind(data);
-// let url = makeURL("index-all",".nozomi")
-
-function full_path_from_hash(hash) {
-  return gg.b+gg.s(hash)+'/'+hash;
-}
-
-async function processArray(array) {
-  // map array to promises
-  const promises = array.map(delayedLog);
-  // wait until all promises are resolved
-  await Promise.all(promises);
-  console.log('Done!');
-}
-
-function real_full_path_from_hash(hash) {
-  return hash.replace(/^.*(..)(.)$/, '$2/$1/'+hash);
-}
-
-
-function full_path_from_hash(hash) {
-  return gg.b+gg.s(hash)+'/'+hash;
-}
-
-function url_from_hash(galleryid, image, dir, ext) {
-  ext = ext || dir || image.name.split('.').pop();
-  dir = dir || 'images';
-  
-  return 'https://a.hitomi.la/'+dir+'/'+full_path_from_hash(image.hash)+'.'+ext;
-}
 
 
 //id,title,language,date, type, releated, files, tags
@@ -363,70 +324,18 @@ const testing = async () => {
     let temp = JSON.parse(response.replace("var galleryinfo = ",""))
     console.log(temp)
     note.push(temp)
-    // getImages(temp)
-    // let image = await hitomi.getGalleryImg("https://aa.hitomi.la/webp/1648310402/45/3a233001e89f76599eb1e390366ef53336543b95c7d64ffecbd2b71985d192d0.webp")
-    // console.log(image.data)
   }));
-
-  // console.log(note)
   return note
-
-  // console.log(url_from_hash("",jsonTemp,'avif','avif'))
-
-  // console.log(real_full_path_from_hash('9fe2fc3ad088b0af7a335a4a4d66cc379b705dac6ea3e94ff44b038cd68b7fc2'));
 }
-
-
-
-const getImages = async (listFiles) => {
-  let listImage = []
-
-
-  // await Promise.all(listFiles.files.map(async (element,index) => {
-  //   let decodeUrl;
-  //   if(index > 10) {
-  //     return;
-  //   }
-  //   decodeUrl = common.url_from_url_from_hash(listFiles.id, element, 'webp', undefined, 'a')
-  //   console.log(decodeUrl)
-  //   let image = await hitomi.getGalleryImg(decodeUrl)
-  //   console.log(index);
-  //   // console.log(image.data) 
-  //   listImage.push(image.data.toString('base64'));
-  // }));
-
-
-
-  // return listImage;
-}
-
-// const testingImage = async (url) =>{
-//   //https://aa.hitomi.la/webp/1648310402/45/3a233001e89f76599eb1e390366ef53336543b95c7d64ffecbd2b71985d192d0.webp
-//   let image = await hitomi.getGalleryImg("https://aa.hitomi.la/webp/1648310402/45/3a233001e89f76599eb1e390366ef53336543b95c7d64ffecbd2b71985d192d0.webp")
-//   // listImage.push(image.data.toString('base64'));
-//   // console.log(image.data.toString('base64'));
-
-//   // await Promise.all(listFiles.files.map(async (element,index) => {
-//   //   let decodeUrl;
-//   //   if(index > 10) {
-//   //     return;
-//   //   }
-//   //   decodeUrl = common.url_from_url_from_hash(listFiles.id, element, 'webp', undefined, 'a')
-//   //   console.log(decodeUrl)
-//   //   let image = await hitomi.getGalleryImg(decodeUrl)
-//   //   console.log(index);
-//   //   // console.log(image.data) 
-//   //   listImage.push(image.data.toString('base64'));
-//   // }));
-// }
 
 const sleep = (ms) => {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-const wrapSlept = async (ms) => { await sleep(ms) };
+const sleeping = async (ms) => { await sleep(ms) };
 
-const getGalleryImg = async(id,files) => {
+//모든 그림을 받아옵니다.
+const getGalleryImgs = async(id,files) => {
   console.log(files)
   listImage = []
   await Promise.all(files.map(async (file,index) => {
@@ -443,51 +352,34 @@ const getGalleryImg = async(id,files) => {
 
 const getGallery = async (listFiles) => {
   start = new Date()
-  let data = await hitomi.getRequest("https://ltn.hitomi.la/gg.js");
+  //변동 값이 있는거 같아서 데이터를 항상 히토미에서 받아오는 방식으로 하였습니다.
+  let data = await hitomi.getRequest("https://ltn.hitomi.la/gg.js"); //to get a js file from hitomi
   ggFunction = data.data.toString().replace("gg","const gg")
+  //vm은 버추얼 머신으로 코드를 대신 넣어주는 방법을 사용합니다.
   vm.runInThisContext(ggFunction)
 
-  console.log(listFiles.files.length)
   nodeArray = []
   while(listFiles.files.length > 0){
     nodeArray.push(listFiles.files.splice(0,5))
   }
 
-  console.log("testing :" + nodeArray)
   failArray = []
   for(const [index, fileNode] of nodeArray.entries()){
     var radomDelay = parseInt(Math.random() * 3 + 1)
-    // console.log(fileNode)
-    // decodeUrl = common.url_from_url_from_hash(listFiles.id, fileNode, 'webp', undefined, 'a')
-    // let image = await hitomi.getGalleryImg(listFiles.id,decodeUrl)
-    // console.log(image.data);
-
-    // listFiles.files.slice(start, end);
     try{
-      await getGalleryImg(listFiles.id,fileNode)
+      await getGalleryImgs(listFiles.id,fileNode)
     }
     catch(e){
-      console.log(index)
       failArray.push(index)
     }
-    // await hitomi.getGalleryImg(decodeUrl)
-    await wrapSlept(radomDelay * 110)
+    await sleeping(radomDelay * 110)
   }
   end = new Date()
   console.log((end - start) / 1000 + "초");
   console.log(failArray)
 }
-//67f366f6a6973c1eb6e3220f232be003e99fc4f5a42693c7635789e3eaa11879
-// testing();
 
 getGallery(testingJson)
-
-
-// getImages(testingJson)
-// getGalleryImgs(testingJson)
-// testingImage();
-
-// console.log(real_full_path_from_hash('67f366f6a6973c1eb6e3220f232be003e99fc4f5a42693c7635789e3eaa11879'))
 
 
 exports.hub = {testing}
