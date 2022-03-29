@@ -1,304 +1,405 @@
 const testingJson = {
-  related: [ 2096145, 2096143, 2096140, 2027711, 2027709 ],
+  language_localname: '日本語',
+  videofilename: null,
+  parodys: [ { url: '/series/one%20piece-all.html', parody: 'one piece' } ],
+  related: [ 2173803, 2173169, 2158596, 2152684, 2136295 ],
+  scene_indexes: [],
+  characters: null,
+  tags: [ { url: '/tag/variant%20set-all.html', tag: 'variant set' } ],
+  video: null,
+  languages: [],
+  type: 'artistcg',
+  japanese_title: '[NEL-ZEL FORMULA][続・姉妹サンド]',
+  title: "zoku shimaisan'do",
+  language_url: '/index-japanese.html',
+  artists: null,
+  date: '2022-03-29 07:27:00-05',
+  id: '2179989',
   files: [
     {
-      name: '01.jpg',
-      height: 550,
+      height: 3318,
       haswebp: 1,
+      hash: '43866792794e1ae339a8191e05219a48885c2898ed0290033a7ef35ea3da4003',
       hasavif: 1,
-      hash: '145f6f1a844167027b06ae26a352ce0aeb5e1f1f3d976c6aa55e2c0ff232daf5',
-      width: 394
+      name: '01_1.png',
+      width: 4500
     },
     {
-      haswebp: 1,
       hasavif: 1,
-      hash: 'e1e27c1085bdfb54517f0466627acbb5e663d7e91ef6dd75c3fc0136d0480a43',
-      width: 2042,
-      name: '02.jpg',
-      height: 3029
+      haswebp: 1,
+      height: 3318,
+      hash: '3702f62c669d687018ec09f9f18b5b7938a7cff6cd4884d7079d1dba05d3b553',
+      width: 4500,
+      name: '02_2.png'
     },
     {
-      height: 550,
-      name: '03.jpg',
-      width: 371,
       hasavif: 1,
-      hash: '967043a6be704f086a21547bc26cce3693f8e2d996837920ac6cd35f2cfb85ed',
-      haswebp: 1
+      hash: '2aa473054ca39eab5ec6aeb1e81b96332f3dd370ed0c744edb000a19bc113b16',
+      height: 3318,
+      haswebp: 1,
+      name: '03_3.png',
+      width: 4500
     },
     {
+      hash: '6ca7680afac056e7c4bbaf70ab0ec74e701fdd9cac0ea1a13ab6688417120d0f',
       haswebp: 1,
-      width: 372,
+      height: 3318,
       hasavif: 1,
-      hash: 'd1b5a92adc68c836391020d5aee75e02985abfddd37b3a5c537d4dd22189670b',
-      name: '04.jpg',
-      height: 550
-    },
-    {
-      haswebp: 1,
-      width: 372,
-      hash: '2599f94f28e54aa2f21fbd19032ca55a9131039815bbc08e3641d54932341c9c',
-      hasavif: 1,
-      name: '05.jpg',
-      height: 550
-    },
-    {
-      width: 370,
-      hasavif: 1,
-      hash: '16dad08489650a0ba441417fb18cc60976039fbbb8f305853ea959fbd4f814b9',
-      haswebp: 1,
-      height: 550,
-      name: '06.jpg'
+      width: 4500,
+      name: '04_4.png'
     },
     {
       haswebp: 1,
-      width: 371,
+      height: 3318,
+      hash: '64f483b51ca1ceb86e5ef9b047a08567c7eff97346785e8a9d2cb07fd852cda4',
       hasavif: 1,
-      hash: 'cfaa7ce5e58fbce2cb6129761b7e3fb79c1c7815161d6ccadc14d4ba2e32a02d',
-      name: '07.jpg',
-      height: 550
+      width: 4500,
+      name: '05_5.png'
     },
     {
-      hasavif: 1,
-      hash: '3b0be469f3d27a924bc47bdbff26fcbee8c86e48a7cf81f54fc642ac7e571448',
-      width: 373,
+      height: 3318,
       haswebp: 1,
-      height: 550,
-      name: '08.jpg'
-    },
-    {
-      height: 550,
-      name: '09.jpg',
-      width: 371,
-      hash: 'a014ce41a552aa8c7e7af66c937b5437d00b27212da3a799dac481c367dee3af',
+      hash: '5c04e07db00048d8a054b2c63063c5e238c4df03d5a0807a56449b1428d1495b',
       hasavif: 1,
-      haswebp: 1
+      width: 4500,
+      name: '06_6.png'
     },
     {
+      name: '07_7.png',
+      width: 4500,
+      hash: '5c9c66948274429ae1af8856203a0f1021c549e821cf71b4c6cd921840899540',
+      height: 3318,
       haswebp: 1,
-      hasavif: 1,
-      hash: 'a1a792c60c6c702da8af47e43a5782ddf159f62acb02aaac5cc5c7d59e97a02b',
-      width: 372,
-      name: '10.jpg',
-      height: 550
-    },
-    {
-      name: '11.jpg',
-      height: 550,
-      haswebp: 1,
-      hasavif: 1,
-      hash: '252417f25fb1041d2a7ab8f638f49149e1592276db36880fa1c4ed2c4259dec0',
-      width: 370
-    },
-    {
-      name: '12.jpg',
-      height: 550,
-      haswebp: 1,
-      width: 372,
-      hash: '9b2be3278b3a4bba19143a9414bb93380755c9d8ca248f392a19c56618cdb77e',
       hasavif: 1
     },
     {
-      width: 371,
       hasavif: 1,
-      hash: '36845e47c675252b5c7701d4d02e952c69f0f442ab188f7e7ff58e7cce6f2349',
+      hash: '2861698338a924408eb8a350a3784a9dd38cf697ed81c0a126742ea2d9d89db3',
+      height: 3318,
       haswebp: 1,
-      height: 550,
-      name: '13.jpg'
+      name: '08_8.png',
+      width: 4500
     },
     {
-      haswebp: 1,
-      hash: '928bd38c41e5ee316190b567cbdbd926e44035e7460cc6a76c65d6b928c33aed',
       hasavif: 1,
-      width: 373,
-      name: '14.jpg',
-      height: 550
+      hash: '08864407fd1b1129035807d9f82f9650f7692b53a8d8bf93a4020f117688c295',
+      haswebp: 1,
+      height: 3318,
+      width: 4500,
+      name: '09_9.png'
     },
     {
-      height: 550,
-      name: '15.jpg',
-      hash: 'd9aa8ecf45038022bb037540f125b0bc3a37d8b149f896d5b1805a62f4f0ebfe',
-      hasavif: 1,
-      width: 371,
-      haswebp: 1
-    },
-    {
-      hash: '1fb692deed107aab5539056a33eaa769f0d2b6e2195665124a2031ff0f6f82e7',
-      hasavif: 1,
-      width: 371,
+      name: '10_10.png',
+      width: 4500,
+      height: 3318,
       haswebp: 1,
-      height: 550,
-      name: '16.jpg'
-    },
-    {
-      width: 372,
-      hash: '4bba96ee3af39150aa22e917ca2904f7065885460d9c10eb813526c445221963',
-      hasavif: 1,
-      haswebp: 1,
-      height: 550,
-      name: '17.jpg'
-    },
-    {
-      haswebp: 1,
-      width: 373,
-      hasavif: 1,
-      hash: '0d264bb67a1fdb82327f66c14aa89c0fc4a6f24e654f65285469fe66a189cfe5',
-      name: '18.jpg',
-      height: 550
-    },
-    {
-      haswebp: 1,
-      width: 371,
-      hasavif: 1,
-      hash: '5edd92709ab68b806b384d3ec1149d4c281ff5286f97da82fddbce8ba54c366f',
-      name: '19.jpg',
-      height: 550
-    },
-    {
-      name: '20.jpg',
-      height: 550,
-      haswebp: 1,
-      width: 370,
-      hash: '75664636a8d9c263ca4bf540c8eefc0447b903901c022b015485266805354bd1',
+      hash: 'a4725e65113eec76ab3f5828dcac76dbfe90a7ddce3477cef30895489156834b',
       hasavif: 1
     },
     {
+      hash: 'e72d5416accf71dcb4a5846fcc32de04c17e251fc8895c0e426f0a86c8488ce7',
       haswebp: 1,
+      height: 3318,
       hasavif: 1,
-      hash: '2622f78905fa299307cfce5fb3462d68d58e135ce36cf8b1a718057944b70930',
-      width: 372,
-      name: '21.jpg',
-      height: 550
+      name: '11_11.png',
+      width: 4500
     },
     {
+      width: 4500,
+      name: '12_12.png',
       haswebp: 1,
-      width: 371,
-      hash: 'd2730f8d0e145c85ce5603997541edadb94359de5bdf805bfd0b86a50ab774bb',
-      hasavif: 1,
-      name: '22.jpg',
-      height: 550
+      height: 3318,
+      hash: '5d400544d512ca1100c80e2f20e10af5aec0c82c15b74ee3331db13e2ec3efb7',
+      hasavif: 1
     },
     {
-      height: 550,
-      name: '23.jpg',
-      width: 372,
+      name: '13_13.png',
+      width: 4500,
+      hash: '71ce572bc0823d2b1af6b22315aa9607d18d797bf8b2e3015c2da5f13b7c4795',
+      height: 3318,
+      haswebp: 1,
+      hasavif: 1
+    },
+    {
+      name: '14_14.png',
+      width: 4500,
+      height: 3318,
+      haswebp: 1,
+      hash: '3c9768144ea3db46f19cc16231662343454ec14a0974a4d95aa10ca6cea32061',
+      hasavif: 1
+    },
+    {
       hasavif: 1,
-      hash: '92f744e8e8c988385826cbd58cde9335dc8347b8e26ab6809c6d417b2e5cfcc6',
+      haswebp: 1,
+      height: 3318,
+      hash: '7352054fc2fd8de57157f0274eb1b218bedf727f9c28500a44f6dc7508c18d49',
+      width: 4500,
+      name: '15_15.png'
+    },
+    {
+      height: 3318,
+      haswebp: 1,
+      hash: '8a42dde6953c8333c16f1f81d18c3f6c075b63cee9856d059311dfbae743d5c8',
+      hasavif: 1,
+      width: 3305,
+      name: '16_ss1.png'
+    },
+    {
+      width: 3305,
+      name: '17_ss2.png',
+      hash: 'a21dea7c5b082a2a2298463e76ce79656de3bea3ab6a25c2089dd201f7a4abca',
+      haswebp: 1,
+      height: 3318,
+      hasavif: 1
+    },
+    {
+      hasavif: 1,
+      haswebp: 1,
+      height: 3318,
+      hash: 'b6c2777d3067717d2f3d02f2990653c573b8cfb27319d18464ac07ce814074de',
+      name: '18_ss3.png',
+      width: 3305
+    },
+    {
+      hasavif: 1,
+      hash: '62c5000be26cea7f0028f76a8183868d1f918aa4c5d7bca0dd0dab8fe7164450',
+      haswebp: 1,
+      height: 3318,
+      width: 3305,
+      name: '19_ss4.png'
+    },
+    {
+      name: '20_ss5.png',
+      width: 3305,
+      hasavif: 1,
+      hash: '9ed120793f26b1aacbb91f3dc5301c8da29270f32db90992e6b97252024e0d41',
+      height: 3318,
       haswebp: 1
     },
     {
-      hash: '8bae67d314a5951e3d9d11557bc85024224d35804121cfe567ee892f2dc0394a',
-      hasavif: 1,
-      width: 373,
-      haswebp: 1,
-      height: 550,
-      name: '24.jpg'
-    },
-    {
-      width: 372,
-      hash: 'f3631986800119fca094e24c9b4de172be7bd93722ced9d663ed0028519751ad',
       hasavif: 1,
       haswebp: 1,
-      height: 550,
-      name: '25.jpg'
+      height: 3318,
+      hash: '038edc89bea583a1ae317fe48cc83343fb5952deb00ab41d0f9399bcadf40a7d',
+      width: 3305,
+      name: '21_ss6.png'
     },
     {
-      height: 550,
-      name: '26.jpg',
-      hash: '5701b914243f6711128edcaf173f84df5b7393229a3b76d41bf5b3e862628570',
+      name: '22_ss7.png',
+      width: 3305,
+      haswebp: 1,
+      height: 3318,
+      hash: '402cfa55f0a5769f2f312ead96516f4908b69b0b14911178ee31bfd589c303c4',
+      hasavif: 1
+    },
+    {
+      width: 3305,
+      name: '23_ss8.png',
       hasavif: 1,
-      width: 371,
+      height: 3318,
+      haswebp: 1,
+      hash: '15a4cb6314f1fd01878acfab3344215d63dc7bd2905eb547c9d15fa879ee712d'
+    },
+    {
+      hasavif: 1,
+      haswebp: 1,
+      height: 3318,
+      hash: '22b70f4b9f351d4c61ab30c9d01bbfa82ce6ccfaa510c8178843abaf9e769d8e',
+      name: '24_SSno1.png',
+      width: 3305
+    },
+    {
+      width: 3305,
+      name: '25_SSno2.png',
+      hash: '295e9e1e104b48ec9691d57d206ab69a55fddf99b82eb444f309610eb9257b9f',
+      height: 3318,
+      haswebp: 1,
+      hasavif: 1
+    },
+    {
+      name: '26_SSno3.png',
+      width: 3305,
+      haswebp: 1,
+      height: 3318,
+      hash: 'a1c652c6bc716b8464ef2afaeb925d89b907e487b380dd5154269f1cc8467cdd',
+      hasavif: 1
+    },
+    {
+      hasavif: 1,
+      height: 3318,
+      haswebp: 1,
+      hash: 'f3d9db534ee202e9348288a9d92d27ecd5e1115d339241568f7cd04e7cfd3756',
+      name: '27_SSno4.png',
+      width: 3305
+    },
+    {
+      name: '28_SSno5.png',
+      width: 3305,
+      hash: '212233877a3ea3a16105dd309ecf96f0cab1ac4dc3906fab633c73b0f4765908',
+      height: 3318,
+      haswebp: 1,
+      hasavif: 1
+    },
+    {
+      name: '29_SSno6.png',
+      width: 3305,
+      hasavif: 1,
+      hash: '1ab4414a48f446af67f4d380a917933f9847bc61ea0370886d4bb8d65f1986b4',
+      height: 3318,
       haswebp: 1
     },
     {
-      height: 550,
-      name: '27.jpg',
-      hash: '5d1899a672aea2b22e93d84c9dc5ece507a9e6bf927c7f069f9351a4590a6776',
       hasavif: 1,
-      width: 372,
+      height: 3318,
+      haswebp: 1,
+      hash: 'd341520a9e4ea6de6cbc1b11427e26baaa7f69a14de11fdbbb01731ee56337f2',
+      width: 3305,
+      name: '30_SSno7.png'
+    },
+    {
+      name: '31_SSno8.png',
+      width: 3305,
+      hasavif: 1,
+      hash: '53305ed56b5c62d03611fa28dc22580e9ad4146c2146831e07b448fcc1b2e5cf',
+      height: 3318,
       haswebp: 1
     },
     {
-      name: '28.jpg',
-      height: 550,
+      name: '32_32.png',
+      width: 4500,
+      height: 3318,
       haswebp: 1,
-      width: 373,
-      hasavif: 1,
-      hash: '9c86dae2a7e1111384460a063b988ab99185c0451aeedb81b1e4572c343d3a7f'
+      hash: '3836a00576dc6194ae10cdc98336deb1ddcf89c4b8928523e302bc4d0b0ae356',
+      hasavif: 1
     },
     {
-      height: 550,
-      name: '29.jpg',
-      hash: '385cc4b2801f039cafefd7f9aeb946db6f686e6543e7296826051b7c0a2b990c',
+      height: 3318,
+      haswebp: 1,
+      hash: 'fee4ac31e0ad4ede30bcd80dc735c3ba2f29e8858f956a091e4cb0108bd0d15b',
       hasavif: 1,
-      width: 372,
+      name: '33_2.png',
+      width: 4500
+    },
+    {
+      haswebp: 1,
+      height: 3318,
+      hash: '493b2e89f9f183b7057912ece24e2517ede79b6b1676393ba9c4b2bf0a533e95',
+      hasavif: 1,
+      width: 4500,
+      name: '34_3.png'
+    },
+    {
+      height: 3318,
+      haswebp: 1,
+      hash: '1fd0ca1caf7f20929511df5e2efc39db261ee7a1c00b8ebedec117169473dca4',
+      hasavif: 1,
+      name: '35_4.png',
+      width: 4500
+    },
+    {
+      haswebp: 1,
+      height: 3318,
+      hash: 'a5bb194fdbd8a87debbc13a569eb54e5899f802e235e227501f9dab028161634',
+      hasavif: 1,
+      width: 4500,
+      name: '36_5.png'
+    },
+    {
+      width: 4500,
+      name: '37_6.png',
+      haswebp: 1,
+      height: 3318,
+      hash: 'e85ffa7639a5053fbb9ebc028e30b46454e27b352b6e0da498ff40dc3424c59f',
+      hasavif: 1
+    },
+    {
+      width: 4500,
+      name: '38_7.png',
+      hasavif: 1,
+      height: 3318,
+      haswebp: 1,
+      hash: '32758ea6f32dfbfd402b918e70a712d042f598f0a139d772fe28064cd1a5f2a5'
+    },
+    {
+      name: '39_8.png',
+      width: 4500,
+      height: 3318,
+      haswebp: 1,
+      hash: '48e5d97227e90492f33dd82bababbb220fb554cc2502b863d12e746c22f3b71f',
+      hasavif: 1
+    },
+    {
+      hasavif: 1,
+      height: 3318,
+      haswebp: 1,
+      hash: 'ae9fe0f9b0514bf87840b9e86aed1c7e5d6f12f42c5d41dc9f366c49c2deb09a',
+      name: '40_9.png',
+      width: 4500
+    },
+    {
+      width: 4500,
+      name: '41_10.png',
+      hash: '09434404ee9df75bf3b7b09ccef6de6f936cc85ab49f35c703bb493e293c67b0',
+      haswebp: 1,
+      height: 3318,
+      hasavif: 1
+    },
+    {
+      height: 3318,
+      haswebp: 1,
+      hash: 'f331f47702040c1b327772dd5f9f8e9e59efbc30e8056adb494fc0ff80b4fd70',
+      hasavif: 1,
+      name: '42_11.png',
+      width: 4500
+    },
+    {
+      hasavif: 1,
+      haswebp: 1,
+      height: 3318,
+      hash: '43c7f0abd4be00a8e7eaec2c81e2dc1749113f5e5c0ad6b88382145284c1ec0e',
+      name: '43_12.png',
+      width: 4500
+    },
+    {
+      width: 4500,
+      name: '44_13.png',
+      haswebp: 1,
+      height: 3318,
+      hash: '239416ec393511285d5dde23d0c0713b2c727745e52694656311e935f582ed04',
+      hasavif: 1
+    },
+    {
+      name: '45_14.png',
+      width: 4500,
+      hasavif: 1,
+      hash: '11f6ecb9334fef6d4a0524b1cda73c824b4c4461e57db7631bb0d95d668a20a2',
+      height: 3318,
       haswebp: 1
     },
     {
-      width: 371,
       hasavif: 1,
-      hash: 'daf8ea1ccd495b389d86c33d5bcac56d8011fbe887f2bcce7214071e96fc14cf',
+      height: 3318,
       haswebp: 1,
-      height: 550,
-      name: '30.jpg'
+      hash: '70f42f189a665be9bf87390466b300be932d2500056d0c54ee6440583d72ce98',
+      name: '46_15.png',
+      width: 4500
     },
     {
-      hash: 'c2ebeef10fdb7ee31212f1da7273b78f827d1676af8aee87fb1c950ad4bb80f7',
-      hasavif: 1,
-      width: 372,
+      width: 4500,
+      name: '47_47.png',
       haswebp: 1,
-      height: 550,
-      name: '31.jpg'
-    },
-    {
-      haswebp: 1,
-      hash: 'd53f562c925cbaa4d874a6175a962fdfb8d19dd586a6d53f2f6667a8d5405125',
-      hasavif: 1,
-      width: 372,
-      name: '32.jpg',
-      height: 550
-    },
-    {
-      height: 550,
-      name: '33.jpg',
-      hash: 'd1378e8ca09ef7730c223a8319d507a9ecd7902dae5058cdfacb8c094e9383c3',
-      hasavif: 1,
-      width: 372,
-      haswebp: 1
-    },
-    {
-      haswebp: 1,
-      width: 395,
-      hasavif: 1,
-      hash: '8c48636b3ba4328fee8df1931b24f492106fecd140133629db7ca04d7ded4943',
-      name: '34.jpg',
-      height: 550
-    },
-    {
-      haswebp: 1,
-      width: 1152,
-      hasavif: 1,
-      hash: 'e460608039f8140f313f7c9242037e8bd0a6d72712d993c9ba14eca8179bc864',
-      name: '35.jpg',
-      height: 768
+      height: 3318,
+      hash: 'b45e7cce90d641878a9ed218ce3c581a24067af943e6c6a91b1ef747e314834e',
+      hasavif: 1
     }
   ],
-  id: '2178960',
-  video: null,
-  parodys: [ { url: '/series/naruto-all.html', parody: 'naruto' } ],
-  tags: [ { tag: 'scanmark', url: '/tag/scanmark-all.html' } ],
-  date: '2022-03-28 04:36:00-05',
-  language_url: '/index-japanese.html',
-  language_localname: '日本語',
-  scene_indexes: [],
-  artists: null,
-  characters: null,
-  japanese_title: null,
-  languages: [],
-  videofilename: null,
   language: 'japanese',
-  title: '児戯とみだら',
-  groups: null,
-  type: 'doujinshi'
+  groups: [
+    {
+      group: 'nel-zel formula',
+      url: '/group/nel%2Dzel%20formula-all.html'
+    }
+  ]
 }
 
 const { default: axios } = require("axios");
@@ -335,22 +436,24 @@ const sleep = (ms) => {
 const sleeping = async (ms) => { await sleep(ms) };
 
 //모든 그림을 받아옵니다.
-const getGalleryImgs = async(id,files) => {
-  console.log(files)
+const getGalleryImgs = async(window,indexX,id,files) => {
+  // console.log(files)
   listImage = []
-  await Promise.all(files.map(async (file,index) => {
+  await Promise.all(files.map(async (file,indexY) => {
     let decodeUrl;
     decodeUrl = common.url_from_url_from_hash(id, file, 'webp', undefined, 'a')
     console.log(decodeUrl)
     let image = await hitomi.getGalleryImg(decodeUrl)
-    console.log(index);
     console.log(image.data) 
-    // listImage.push(image.data.toString('base64'));
+    window.webContents.send('LoadImage',image.data.toString('base64'),indexX * 5 + indexY)
+    listImage.push(image.data.toString('base64'));
   }));
   return listImage
 }
 
-const getGallery = async (listFiles) => {
+//그림을 받는 기본 메소드입니다.
+const getGallery = async (window,listFiles = testingJson) => {
+  // console.log(window,listFiles)
   start = new Date()
   //변동 값이 있는거 같아서 데이터를 항상 히토미에서 받아오는 방식으로 하였습니다.
   let data = await hitomi.getRequest("https://ltn.hitomi.la/gg.js"); //to get a js file from hitomi
@@ -359,20 +462,21 @@ const getGallery = async (listFiles) => {
   vm.runInThisContext(ggFunction)
 
   nodeArray = []
+  window.webContents.send('preLoadImageContainer',listFiles);
   while(listFiles.files.length > 0){
     nodeArray.push(listFiles.files.splice(0,5))
   }
-
   failArray = []
   for(const [index, fileNode] of nodeArray.entries()){
-    var radomDelay = parseInt(Math.random() * 3 + 1)
+    var radomDelay = parseInt(Math.random() * 2 + 1)
     try{
-      await getGalleryImgs(listFiles.id,fileNode)
+      await getGalleryImgs(window,index,listFiles.id,fileNode)
     }
     catch(e){
+      console.log(e)
       failArray.push(index)
     }
-    await sleeping(radomDelay * 110)
+    await sleeping(radomDelay * 50)
   }
   end = new Date()
   console.log((end - start) / 1000 + "초");
@@ -380,7 +484,7 @@ const getGallery = async (listFiles) => {
   
 }
 
-getGallery(testingJson)
+// testing()
 
 
-exports.hub = {testing}
+exports.Request = {getGallery}

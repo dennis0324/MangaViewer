@@ -10,7 +10,7 @@ const cheerio = require("cheerio");
 
 // const vm = require('vm');
 
-const { ipcRenderer } = require('electron')
+const { ipcRenderer,ipcMain } = require('electron')
 
 
 window.onload = () => {
@@ -27,6 +27,24 @@ window.onload = () => {
         });
     })
 
+    ipcRenderer.on('LoadImage', (evt, payload,index) => {
+        console.log(index)
+        document.querySelector(`.imageBox.img${index}`).src = 'data:image/png;base64,'+ payload;
+    })
+    ipcRenderer.on('preLoadImageContainer',(evt, payload)=> {
+        let containerCount = payload.files.length;
+        payload.files.forEach((element,index) => {
+            node = document.createElement("img");
+            ratio = element.width / 600;
+            
+            node.style.height = `${element.height / ratio}px`;
+            node.style.width = `600px`;
+
+            node.classList.add("imageBox");
+            node.classList.add(`img${index}`);
+            document.querySelector('.container').appendChild(node);
+        })
+    })
 
 }
 

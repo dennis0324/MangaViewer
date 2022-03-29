@@ -1,20 +1,22 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, ipcMain} = require('electron')
 const path = require('path')
-const request = require("request");
+// const request = require("request");
 
 const test = require("./function/Utitl/getData.js");
-const {hub} = require("./function/Utitl/testing")
+const {Request} = require("./function/Utitl/request")
 const Hitomi = test.Hitomi
 const hitomi = new Hitomi();
 
-// const {Hitomi} = require('./function/Utitl/getData')
+
+// ipcMain.on("dataSend",function () {
+
+// })
 async function data(mainWindow){
-  
-  let index = await hub.testing()
-  // var hash =  await hitomi.getGalleryImg('https://aa.hitomi.la/webp/1648386001/2098/0686a453a465a4b71da5aacc531820a04e0c23d20842bab4a51981ac861b0328.webp')
+  Request.getGallery(mainWindow)
+  // let index = await hub.testing()
   // mainWindow.webContents.send('onWebcontentsValue', hash.data.toString('base64'))
-  mainWindow.webContents.send('onIndexGetReady',index)
+  // mainWindow.webContents.send('onIndexGetReady',index)
 }
 function createWindow () {
   // Create the browser window.
