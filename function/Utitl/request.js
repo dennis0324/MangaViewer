@@ -377,6 +377,7 @@ const getGallery = async (listFiles) => {
   end = new Date()
   console.log((end - start) / 1000 + "초");
   console.log(failArray)
+  
 }
 
 getGallery(testingJson)
