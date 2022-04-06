@@ -14,3 +14,8 @@ export interface galleryData {
   date:string;
   sitetype:string;
 }
+
+export interface hentaieraData{
+  href:string;
+  img:string;
+}
