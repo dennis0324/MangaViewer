@@ -1,0 +1,40 @@
+{
+  "name": "mangaviewer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./js/electron/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ts-c": "cd ./ts & tsc -w",
+    "watch": "webpack --config webpack.common.js --watch",
+    "start": "set NODE_ENV=development&&electron .",
+    "dev": "npm run ts-c & npm run watch & npm start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.17.8",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "@types/react": "^17.0.43",
+    "@types/react-dom": "^17.0.14",
+    "babel-loader": "^8.2.4",
+    "bootstrap": "^5.1.3",
+    "css-loader": "^6.7.1",
+    "electron-reload": "^2.0.0-alpha.1",
+    "electron-reloader": "^1.2.3",
+    "react-bootstrap": "^2.2.2",
+    "sass": "^1.49.11",
+    "sass-loader": "^12.6.0",
+    "style-loader": "^3.3.1",
+    "typescript": "^4.6.3",
+    "webpack": "^5.71.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "electron": "^18.0.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  }
+}

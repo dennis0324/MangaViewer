@@ -1,0 +1,40 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "test App",
+			"dependsOn": [
+				"npm: watch",
+				"npm: ts-c",
+				"npm: start"
+			],
+			"problemMatcher": [
+				"$eslint-stylish"
+			]
+		},
+		{
+			"type": "shell",
+			"label": "npm: ts-c",
+			"command": "npm run ts-c",
+			"presentation": {
+				"group": "app test component"
+			}
+		},
+		{
+			"type": "shell",
+			"label": "npm: watch",
+			"command": "npm run watch",
+			"presentation": {
+				"group": "app test component"
+			}
+		},
+		{
+			"type": "shell",
+			"label": "npm: start",
+			"command": "Start-Sleep -s 5 | npm start",
+			"presentation": {
+				"group": "app test component"
+			}
+		}
+	]
+}
