@@ -5,7 +5,7 @@
 // selectively enable features needed in the rendering
 // process.
 const { not } = require("cheerio/lib/api/traversing");
-const test = require("./function/Utitl/getData.js");
+const test = require("./src/Function/Hitomi/Hitomi.js");
 const cheerio = require("cheerio");
 
 // const vm = require('vm');

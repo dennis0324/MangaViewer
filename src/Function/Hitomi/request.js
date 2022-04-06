@@ -404,11 +404,12 @@ const testingJson = {
 
 const { default: axios } = require("axios");
 const { not } = require("cheerio/lib/api/traversing");
-const test = require("./getData");
+const test = require("./Hitomi");
 const vm = require('vm');
-const {common} = require('./commonFunction')
+const {common} = require('../Uitl/commonFunction')
 const randomUseragent = require('random-useragent');
 const ua = randomUseragent.getRandom();
+const cheerio = require("cheerio");
 
 
 var Hitomi = test.Hitomi
@@ -437,17 +438,17 @@ const sleeping = async (ms) => { await sleep(ms) };
 
 //모든 그림을 받아옵니다.
 const getGalleryImgs = async(window,indexX,id,files) => {
-  // console.log(files)
+  console.log(files)
   listImage = []
-  await Promise.all(files.map(async (file,indexY) => {
-    let decodeUrl;
-    decodeUrl = common.url_from_url_from_hash(id, file, 'webp', undefined, 'a')
-    console.log(decodeUrl)
-    let image = await hitomi.getGalleryImg(decodeUrl)
-    console.log(image.data) 
-    window.webContents.send('LoadImage',image.data.toString('base64'),indexX * 5 + indexY)
-    listImage.push(image.data.toString('base64'));
-  }));
+  // await Promise.all(files.map(async (file,indexY) => {
+  //   let decodeUrl;
+  //   decodeUrl = common.url_from_url_from_hash(id, file, 'webp', undefined, 'a')
+  //   console.log(decodeUrl)
+  //   let image = await hitomi.getGalleryImg(decodeUrl)
+  //   console.log(image.data) 
+  //   window.webContents.send('LoadImage',image.data.toString('base64'),indexX * 5 + indexY)
+  //   listImage.push(image.data.toString('base64'));
+  // }));
   return listImage
 }
 
@@ -462,7 +463,7 @@ const getGallery = async (window,listFiles = testingJson) => {
   vm.runInThisContext(ggFunction)
 
   nodeArray = []
-  window.webContents.send('preLoadImageContainer',listFiles);
+  // window.webContents.send('preLoadImageContainer',listFiles);
   while(listFiles.files.length > 0){
     nodeArray.push(listFiles.files.splice(0,5))
   }
@@ -484,7 +485,22 @@ const getGallery = async (window,listFiles = testingJson) => {
   
 }
 
-// testing()
+const newTesting = async () => {
+  temp =  await hitomi.testingNew()
+  const $ = cheerio.load(temp.data)
+  arr = []
+  $("div.thumb div div.inner_thumb a").map((index,element) => {
+    temp = {}
+    temp.href = element.attribs.href;
 
+    imgElement = $(element).find("img")
+    temp.img = imgElement[0].attribs.src
+    
+    arr.push(temp);
+    })
+    console.log(arr)
+  // console.log($("div.thumb div div.inner_thumb a"))
+}
 
+newTesting();
 exports.Request = {getGallery}

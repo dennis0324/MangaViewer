@@ -3,8 +3,8 @@ const {app, BrowserWindow, ipcMain} = require('electron')
 const path = require('path')
 // const request = require("request");
 
-const test = require("./function/Utitl/getData.js");
-const {Request} = require("./function/Utitl/request")
+const test = require("./src/Function/Hitomi/Hitomi.js");
+const {Request} = require("./src/Function/Hitomi/request")
 const Hitomi = test.Hitomi
 const hitomi = new Hitomi();
 

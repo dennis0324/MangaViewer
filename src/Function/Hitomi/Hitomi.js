@@ -1,4 +1,4 @@
-// const cheerio = require("cheerio");
+const cheerio = require("cheerio");
 // const https = require("https");
 
 // var XMLHttpRequest = require('xhr2');
@@ -125,4 +125,20 @@ Hitomi.prototype.getGalleryImg = async function(url) {
         })
         return data
 }
+
+Hitomi.prototype.testingNew = async function() {
+        const ua = randomUseragent.getRandom();
+        const data = await axios.request({
+                url: "https://hentaiera.com/?page=4",
+                method: 'POST',
+                // responseType : 'arraybuffer',
+                // responseEncoding : 'binary',
+                headers : { //basic header for request
+                        "User-Agent": ua,
+                        // 'Referer': 'https://hitomi.la/',
+                }
+        })
+        return data
+}
+
 exports.Hitomi = Hitomi;
