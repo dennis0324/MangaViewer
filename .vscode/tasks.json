@@ -31,7 +31,7 @@
 		{
 			"type": "shell",
 			"label": "npm: start",
-			"command": "Start-Sleep -s 5 | npm start",
+			"command": "Start-Sleep -s 7 | npm start",
 			"presentation": {
 				"group": "app test component"
 			}

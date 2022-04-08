@@ -1,8 +1,5 @@
-import cheerio from "cheerio";
-// const cheerio = require("cheerio");
 import axios from 'axios';
 import randomUseragent from 'random-useragent';
-const ua = randomUseragent.getRandom();
 
 const Hentaiera = function(){
   

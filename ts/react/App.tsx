@@ -1,5 +1,6 @@
 import React from "react";
 import ImageBlock from "./component/imageBlock";
+import ImagesGallery from "./ImagesGallery";
 import {galleryData} from '../types';
 export default function App(){
 
@@ -22,7 +23,8 @@ export default function App(){
       // @ts-expect-error
       electron.notificationApi.sendNotification("my custom notification")
     }}>Notify</button>
-    <ImageBlock data={data} />
+    {/* <ImageBlock data={data} /> */}
+    <ImagesGallery/>
   </>
   )
 }

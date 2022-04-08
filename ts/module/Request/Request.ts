@@ -438,9 +438,9 @@ const getGalleryImgs = async(window,indexX,id,files) => {
 let hitomi = new HitomiFunction.Hitomi('https:','ltn.hitomi.la')
 let hentaiera = new HentaieraFunction.Hentaiera()
 console.log(hitomi.url)
-class dataRequest{
+export default class dataRequest{
   constructor(){
-    this.init()
+    console.log("testing");
   }
 
   async init () {
@@ -449,15 +449,18 @@ class dataRequest{
   //hitomi -> getImgs , getIndex, getLazyPage
   //hentaiera -> getIndex,
   static site = {
+    testing : function(){
+      return "checked"
+    },
     Hitomi : {
       getIndex : async function (){
         let note:JSON[] = []
-        let index = await hitomi.getIndexs(1,10)
+        let index = await hitomi.getIndexs(1,25)
         // console.log(index)
         await Promise.all(index.nozomi.map(async (element) => {
           const response  = await hitomi.getGalleryInfo(element)
           let temp = JSON.parse(response.replace("var galleryinfo = ",""))
-          console.log(temp)
+          // console.log(temp)
           note.push(temp)
         }));
         return note
@@ -467,8 +470,6 @@ class dataRequest{
         let ggFunction:string = data.data.toString().replace("gg","const gg")
         //vm은 버추얼 머신으로 코드를 대신 넣어주는 방법을 사용합니다.
         vm.runInThisContext(ggFunction)
-        // const getGallery = async (window,listFiles = testingJson) => {
-        // console.log(window,listFiles)
         let start:Date = new Date()
         //변동 값이 있는거 같아서 데이터를 항상 히토미에서 받아오는 방식으로 하였습니다.
 
@@ -494,7 +495,7 @@ class dataRequest{
         let end:Date = new Date()
         console.log((end.getTime() - start.getTime()) / 1000 + "초");
         console.log(failArray) 
-      }
+      },
     },
     Hentaiera:{
       getIndex:async function(){
@@ -514,12 +515,3 @@ class dataRequest{
     }
   }
 }
-
-let data = new dataRequest();
-const testingPorpose = async () => {
-  let temp = await dataRequest.site.Hitomi.getImgs("");
-  console.log('running');
-  console.log(temp)
-}
-
-testingPorpose();

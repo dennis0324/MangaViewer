@@ -57,7 +57,7 @@ Hitomi.prototype.getIndex = async function(url){
         
   var nozomi = []
   this.requestData.url = url
-  console.log(this.requestData)
+  // console.log(this.requestData)
   let response =  await axios.request(this.requestData)
   
   var arrayBuffer = toArrayBuffer(response.data); // Note: not oReq.responseText
@@ -79,13 +79,6 @@ Hitomi.prototype.getGalleryInfo = async function(galleryNum:number){
   let index = await this.getRequest(url)
   return index.data.toString()
 }
-
-// //? 뭐하는 함수더라...
-// Hitomi.prototype.getGalleryBlock = async function(galleryNum:number){
-//   let url:string = this.makeURL(`galleryblock/${galleryNum}`,this.Extension.READER)
-//   let index = await this.getRequest(url)
-//   return index.data.toString()
-// }
 
 Hitomi.prototype.getGalleryImg = async function(url) {
   const ua = randomUseragent.getRandom();
